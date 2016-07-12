@@ -1,0 +1,157 @@
+{
+ "version": "application/octet-stream",
+ "allow_edit": true,
+ "plugins": [],
+ "panes": [
+  {
+   "width": 1,
+   "row": {
+    "4": 1
+   },
+   "col": {
+    "4": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Temperature",
+      "value": "datasources[\"Farmboard\"][\"espsmartfarm\"][\"d\"][\"temp\"]",
+      "units": "C",
+      "min_value": 0,
+      "max_value": 100
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "4": 5
+   },
+   "col": {
+    "4": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "Button",
+     "settings": {
+      "caption": "ON",
+      "color": "green",
+      "onClick": "microgear[\"onboard\"].chat(\"espsmartfarm\", \"ON\");"
+     }
+    },
+    {
+     "type": "Button",
+     "settings": {
+      "caption": "OFF",
+      "color": "red",
+      "onClick": "microgear[\"onboard\"].chat(\"espsmartfarm\", \"OFF\");"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "4": 7
+   },
+   "col": {
+    "4": 4
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "pointer",
+     "settings": {
+      "direction": "0",
+      "value_text": "datasources[\"Farmboard\"][\"espsmartfarm\"][\"d\"][\"soil\"]",
+      "units": "Soil moisture"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "4": 1
+   },
+   "col": {
+    "4": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "size": "regular",
+      "value": "SMART FARM 22",
+      "animate": true
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "4": 1
+   },
+   "col": {
+    "4": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Humidity",
+      "value": "datasources[\"Farmboard\"][\"espsmartfarm\"][\"d\"][\"humid\"]",
+      "units": "%RH",
+      "min_value": 0,
+      "max_value": 100
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "4": 1
+   },
+   "col": {
+    "4": 4
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "sparkline",
+     "settings": {
+      "title": "Soil moisture",
+      "value": [
+       "datasources[\"Farmboard\"][\"espsmartfarm\"][\"d\"][\"soil\"]"
+      ],
+      "legend": "0"
+     }
+    }
+   ]
+  }
+ ],
+ "datasources": [
+  {
+   "name": "Farmboard",
+   "type": "netpie_microgear",
+   "settings": {
+    "appid": "SmartFarm22",
+    "key": "Y6ee5Y22u0rSyxY",
+    "secret": "b2EgHdSaOdipfWwGpMtdeXX16",
+    "alias": "smartfarmboard",
+    "microgearRef": "onboard",
+    "topics": "/#",
+    "json_data": true
+   }
+  }
+ ],
+ "columns": 4
+}
